@@ -1,4 +1,5 @@
 # 📦 Demand Forecasting & Time Series Modeling
+
 ### Walmart M5 Sales Forecasting — End-to-End ML Project
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
@@ -26,35 +27,35 @@ This project was built entirely using free and open-source tools. No paid APIs, 
 
 ## ❓ Business Questions Answered
 
-| # | Question | Answer Found |
-|---|---|---|
-| 1 | How much does Walmart sell on an average day across all stores? | ~38,000 units/day across 10 stores |
-| 2 | Which day of the week drives the most sales? | Saturday — consistently the peak day across all years |
-| 3 | Which product category dominates sales volume? | FOODS (~70% of all units sold) |
-| 4 | Do SNAP food assistance days affect sales? | Yes — approximately 12.7% lift on SNAP days |
-| 5 | Which events have the biggest impact on demand? | Labor Day and Super Bowl drive the highest lifts |
-| 6 | What is the most accurate forecasting model for this dataset? | Prophet — 4.71% MAPE over a 28-day horizon |
-| 7 | How much does better forecasting save in inventory costs? | ~$3,290/day or ~$1.2M/year vs naive approach |
-| 8 | Does model complexity always mean better accuracy? | No — LSTM (most complex) was outperformed by Prophet and SARIMA |
+| #   | Question                                                        | Answer Found                                                    |
+| --- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| 1   | How much does Walmart sell on an average day across all stores? | ~38,000 units/day across 10 stores                              |
+| 2   | Which day of the week drives the most sales?                    | Saturday — consistently the peak day across all years           |
+| 3   | Which product category dominates sales volume?                  | FOODS (~70% of all units sold)                                  |
+| 4   | Do SNAP food assistance days affect sales?                      | Yes — approximately 12.7% lift on SNAP days                     |
+| 5   | Which events have the biggest impact on demand?                 | Labor Day and Super Bowl drive the highest lifts                |
+| 6   | What is the most accurate forecasting model for this dataset?   | Prophet — 4.71% MAPE over a 28-day horizon                      |
+| 7   | How much does better forecasting save in inventory costs?       | ~$3,290/day or ~$1.2M/year vs naive approach                    |
+| 8   | Does model complexity always mean better accuracy?              | No — LSTM (most complex) was outperformed by Prophet and SARIMA |
 
 ---
 
 ## 🛠️ Tools & Libraries Used
 
-| Tool / Library | Version | Purpose |
-|---|---|---|
-| Python | 3.10+ | Core programming language |
-| pandas | 2.x | Data manipulation and transformation |
-| numpy | 1.24+ | Numerical operations |
-| matplotlib | Latest | Visualisation and plotting |
-| seaborn | Latest | Statistical visualisation |
-| statsmodels | 0.14+ | SARIMA model, ADF test, decomposition |
-| prophet | 1.1+ | Facebook Prophet forecasting model |
-| tensorflow / keras | 2.13+ | LSTM deep learning model |
-| scikit-learn | 1.3+ | Metrics (MAE, RMSE, MAPE), preprocessing |
-| scipy | Latest | Z-score anomaly detection |
-| jupyter | Latest | Notebook environment |
-| VS Code | Latest | Primary development environment |
+| Tool / Library     | Version | Purpose                                  |
+| ------------------ | ------- | ---------------------------------------- |
+| Python             | 3.10+   | Core programming language                |
+| pandas             | 2.x     | Data manipulation and transformation     |
+| numpy              | 1.24+   | Numerical operations                     |
+| matplotlib         | Latest  | Visualisation and plotting               |
+| seaborn            | Latest  | Statistical visualisation                |
+| statsmodels        | 0.14+   | SARIMA model, ADF test, decomposition    |
+| prophet            | 1.1+    | Facebook Prophet forecasting model       |
+| tensorflow / keras | 2.13+   | LSTM deep learning model                 |
+| scikit-learn       | 1.3+    | Metrics (MAE, RMSE, MAPE), preprocessing |
+| scipy              | Latest  | Z-score anomaly detection                |
+| jupyter            | Latest  | Notebook environment                     |
+| VS Code            | Latest  | Primary development environment          |
 
 ---
 
@@ -64,13 +65,14 @@ This project was built entirely using free and open-source tools. No paid APIs, 
 
 The M5 dataset is one of the most widely used real-world retail forecasting benchmarks. It covers daily sales data from 10 Walmart stores across 3 US states.
 
-| File | Rows | Columns | Description |
-|---|---|---|---|
-| `sales_train_validation.csv` | 30,490 | 1,919 | One row per product-store pair, one column per day (wide format) |
-| `calendar.csv` | 1,969 | 14 | Maps day index (d_1 … d_1969) to calendar dates, events, SNAP flags |
-| `sell_prices.csv` | ~6.8M | 4 | Weekly sell price per product per store |
+| File                         | Rows   | Columns | Description                                                         |
+| ---------------------------- | ------ | ------- | ------------------------------------------------------------------- |
+| `sales_train_validation.csv` | 30,490 | 1,919   | One row per product-store pair, one column per day (wide format)    |
+| `calendar.csv`               | 1,969  | 14      | Maps day index (d_1 … d_1969) to calendar dates, events, SNAP flags |
+| `sell_prices.csv`            | ~6.8M  | 4       | Weekly sell price per product per store                             |
 
 **After transformation:**
+
 - Melted to long format: **58,327,370 rows × 19 columns**
 - Date range: **29 January 2011 → June 2016**
 - Stores: **10 (CA×4, TX×3, WI×3)**
@@ -85,14 +87,14 @@ The M5 dataset is one of the most widely used real-world retail forecasting benc
 
 ### Model Performance — 28-Day Forecast Horizon
 
-| Model | MAE | RMSE | MAPE | Daily Error (units) | Daily Inventory Risk |
-|---|---|---|---|---|---|
-| 🥇 Prophet | 2,068.6 | 2,679.3 | 4.71% | ~1,790 units | ~$3,580 |
-| 🥈 SARIMA | 2,309.8 | 2,794.9 | 5.44% | ~2,067 units | ~$4,134 |
-| 🥉 LSTM | 3,288.3 | 3,793.7 | 7.58% | ~2,879 units | ~$5,758 |
-| Naive Baseline | 4,061.0 | 6,160.1 | 9.04% | ~3,435 units | ~$6,870 |
+| Model          | MAE     | RMSE    | MAPE  | Daily Error (units) | Daily Inventory Risk |
+| -------------- | ------- | ------- | ----- | ------------------- | -------------------- |
+| 🥇 Prophet     | 2,068.6 | 2,679.3 | 4.71% | ~1,790 units        | ~$3,580              |
+| 🥈 SARIMA      | 2,309.8 | 2,794.9 | 5.44% | ~2,067 units        | ~$4,134              |
+| 🥉 LSTM        | 3,288.3 | 3,793.7 | 7.58% | ~2,879 units        | ~$5,758              |
+| Naive Baseline | 4,061.0 | 6,160.1 | 9.04% | ~3,435 units        | ~$6,870              |
 
-*Inventory risk calculated at $2/unit holding cost*
+_Inventory risk calculated at $2/unit holding cost_
 
 ### Key Findings
 
@@ -126,11 +128,6 @@ Demand-Forecasting-Time-Series-Modeling/
 ├── notebooks/
 │   └── demand_forecasting.ipynb   ← Main project notebook (all steps)
 │
-├── outputs/
-│   ├── plots/                     ← All saved EDA and forecast charts
-│   └── results/
-│       └── model_comparison.csv   ← MAE, RMSE, MAPE for all models
-│
 ├── README.md                      ← This file
 ├── requirements.txt               ← All Python dependencies
 └── .gitignore                     ← Excludes data files and environment folders
@@ -163,12 +160,14 @@ cd Demand-Forecasting-Time-Series-Modeling
 ### Step 2 — Create and Activate Virtual Environment
 
 **Windows (VS Code terminal):**
+
 ```bash
 python -m venv ts_env
 ts_env\Scripts\activate
 ```
 
 **Mac / Linux:**
+
 ```bash
 python -m venv ts_env
 source ts_env/bin/activate
@@ -221,14 +220,14 @@ Expected total runtime: **15–25 minutes** depending on hardware (LSTM training
 
 ### Common Issues & Fixes
 
-| Error | Cause | Fix |
-|---|---|---|
-| `MemoryError` on price merge | Wrong join keys | Ensure merge uses `['store_id','item_id','wm_yr_wk']` — all three keys |
-| `ValueError: merging datetime64 and str` | Calendar date not converted | Add `calendar['date'] = pd.to_datetime(calendar['date'])` before merge |
-| `TypeError: fillna() method argument` | pandas 2.x removed method param | Replace `.fillna(method='bfill')` with `.bfill()` |
-| Prophet import error | Wrong package name | Install `prophet` not `fbprophet` — package was renamed |
-| TensorFlow import warning in VS Code | Pylance static analysis limitation | Use `import tensorflow as tf` then `tf.keras.layers.LSTM(...)` |
-| ts_env not showing in kernel list | Interpreter not registered | Run `python -m ipykernel install --user --name=ts_env` in terminal |
+| Error                                    | Cause                              | Fix                                                                    |
+| ---------------------------------------- | ---------------------------------- | ---------------------------------------------------------------------- |
+| `MemoryError` on price merge             | Wrong join keys                    | Ensure merge uses `['store_id','item_id','wm_yr_wk']` — all three keys |
+| `ValueError: merging datetime64 and str` | Calendar date not converted        | Add `calendar['date'] = pd.to_datetime(calendar['date'])` before merge |
+| `TypeError: fillna() method argument`    | pandas 2.x removed method param    | Replace `.fillna(method='bfill')` with `.bfill()`                      |
+| Prophet import error                     | Wrong package name                 | Install `prophet` not `fbprophet` — package was renamed                |
+| TensorFlow import warning in VS Code     | Pylance static analysis limitation | Use `import tensorflow as tf` then `tf.keras.layers.LSTM(...)`         |
+| ts_env not showing in kernel list        | Interpreter not registered         | Run `python -m ipykernel install --user --name=ts_env` in terminal     |
 
 ---
 
@@ -258,18 +257,18 @@ ipykernel>=6.0.0
 
 The main notebook `demand_forecasting.ipynb` is organised into 10 sequential steps:
 
-| Step | Title | Description |
-|---|---|---|
-| 1 | Environment Setup | Library imports, seed setting, display config |
-| 2 | Data Acquisition & Transformation | Load 3 files, melt wide→long, merge calendar and prices |
-| 3 | Exploratory Data Analysis | 8 plots covering trends, seasonality, events, SNAP, anomalies |
-| 4 | Train / Test Split | Temporal 80/20 split — last 28 days as test |
-| 5 | SARIMA Model | ADF test, ACF/PACF, SARIMA(1,1,1)(1,1,1,7) fit and forecast |
-| 6 | Prophet Model | Fit with SNAP + event regressors, component plots |
-| 7 | LSTM Model | Sequence windowing, architecture, training, evaluation |
-| 8 | Model Comparison | MAE/RMSE/MAPE table, combined forecast plot, analysis |
-| 9 | Business Impact | Cost quantification, team stakeholders, savings estimate |
-| 10 | Production Design | Pipeline, retraining, drift detection, alerting, serving |
+| Step | Title                             | Description                                                   |
+| ---- | --------------------------------- | ------------------------------------------------------------- |
+| 1    | Environment Setup                 | Library imports, seed setting, display config                 |
+| 2    | Data Acquisition & Transformation | Load 3 files, melt wide→long, merge calendar and prices       |
+| 3    | Exploratory Data Analysis         | 8 plots covering trends, seasonality, events, SNAP, anomalies |
+| 4    | Train / Test Split                | Temporal 80/20 split — last 28 days as test                   |
+| 5    | SARIMA Model                      | ADF test, ACF/PACF, SARIMA(1,1,1)(1,1,1,7) fit and forecast   |
+| 6    | Prophet Model                     | Fit with SNAP + event regressors, component plots             |
+| 7    | LSTM Model                        | Sequence windowing, architecture, training, evaluation        |
+| 8    | Model Comparison                  | MAE/RMSE/MAPE table, combined forecast plot, analysis         |
+| 9    | Business Impact                   | Cost quantification, team stakeholders, savings estimate      |
+| 10   | Production Design                 | Pipeline, retraining, drift detection, alerting, serving      |
 
 ---
 
@@ -278,6 +277,7 @@ The main notebook `demand_forecasting.ipynb` is organised into 10 sequential ste
 This project was completed as part of a structured self-learning curriculum in data science and machine learning. It is my first time working with a dataset of this scale (58 million rows), implementing time series models from scratch, and thinking about how a model would operate beyond the notebook environment.
 
 Key personal learnings from this project:
+
 - Data preparation takes longer than modelling — the melt, merge, and type conversion steps required careful debugging
 - Model complexity does not guarantee better results — Prophet (simpler) outperformed LSTM (more complex) on this dataset
 - Aggregation level matters enormously — several charts showed misleading ~1.0 averages until I fixed the groupby level
@@ -285,5 +285,5 @@ Key personal learnings from this project:
 
 ---
 
-*Dataset credit: Walmart M5 Forecasting Competition, hosted on Kaggle*
-*Tutorial reference: https://youtu.be/OfkYUaCp3mc — Segment 4:36–6:49*
+_Dataset credit: Walmart M5 Forecasting Competition, hosted on Kaggle_
+_Tutorial reference: https://youtu.be/OfkYUaCp3mc — Segment 4:36–6:49_
