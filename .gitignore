@@ -1,0 +1,40 @@
+# ── Virtual Environment ──────────────────────────────────────────────────────
+ts_env/
+venv/
+env/
+.env
+
+# ── Data Files (too large for GitHub — download from Kaggle) ─────────────────
+data/
+*.csv
+*.txt
+*.zip
+
+# ── Jupyter Checkpoints ──────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# ── Python Cache ─────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# ── VS Code Settings ─────────────────────────────────────────────────────────
+.vscode/
+
+# ── OS Files ─────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Model Checkpoints (large files) ──────────────────────────────────────────
+*.h5
+*.keras
+*.pkl
+*.joblib
+
+# ── Kaggle API Key (never commit this) ───────────────────────────────────────
+kaggle.json
+.kaggle/
